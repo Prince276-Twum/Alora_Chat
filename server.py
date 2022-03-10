@@ -116,7 +116,7 @@ def register_user():
 
         login_user(User.query.filter_by(username=registration_form.username.data).first())
         return redirect(url_for('menu_page'))
-    return render_template("registration.html", form=registration_form)
+    return render_template("index.html", form=registration_form)
 
 
 # login route
@@ -128,7 +128,7 @@ def login_page():
         login_user(user_details)
         return redirect(url_for('menu_page'))
 
-    return render_template("registration.html", form=login_forms, show_login=True)
+    return render_template("index.html", form=login_forms, show_login=True)
 
 
 # user dashboard
