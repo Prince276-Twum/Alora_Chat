@@ -10,7 +10,6 @@ from sqlalchemy.orm import relationship
 from flask_socketio import SocketIO, send, join_room, leave_room
 import time
 
-
 app = Flask(__name__)
 Bootstrap(app)
 socketio = SocketIO(app)
@@ -182,7 +181,7 @@ def chat_page(room):
 def message_handler(data):
     print(data)
     send(data, room=data["room"])
-    
+
 
 # user joining a room    
 @socketio.on("join")
@@ -190,9 +189,6 @@ def join_handler(data):
     chat_room = data["room"]
     join_room(chat_room)
     send({"msg": "user joined the room"}, room=chat_room)
-    
-    
-
 
 if __name__ == "__main__":
     app.run(debug=True)
