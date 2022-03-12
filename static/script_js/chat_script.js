@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    var socket = io();
+    var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
     const BOT_IMG = "https://image.flaticon.com/icons/svg/327/327779.svg";
     const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
 

@@ -190,5 +190,6 @@ def join_handler(data):
     join_room(chat_room)
     send({"msg": "user joined the room"}, room=chat_room)
 
+
 if __name__ == "__main__":
     app.run(debug=True)
