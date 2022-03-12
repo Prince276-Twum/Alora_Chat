@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/chat_style.css')}}">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js"></script>
+
+</head>
+
+<body>
+<div class="container">
+            <div id="message-section"class="chat-body">
+              <!-- <h6>Mini Chat</h6>
+              <div class="answer left">
+                <div class="avatar">
+                  <div class="status offline"></div>
+                </div>
+                <div class="name">Alexander Herthic</div>
+                <div class="text">
+                  Lorem ipsum dolor amet, consectetur adipisicing elit Lorem ipsum dolor amet, consectetur adipisicing elit Lorem ipsum dolor amet, consectetur adiping elit
+                </div>
+                <div class="time">5 min ago</div>
+              </div>
+
+
+
+
+              <div  class="answer right">
+                <div class="avatar">
+                  <div class="status offline"></div>
+                </div>
+                <div class="name">Alexander Herthic</div>
+                <div class="text">
+ amet, consectetur adipisicing elit Lorem ipsum dolor amet,  adipisicing elit Lorem ipsum dolor amet, consectetur adiping elit
+                </div>
+                <div class="time">5 min ago</div>
+              </div> -->
+
+
+
+              <!-- <div class="answer-add">
+                <input placeholder="Write a message">
+                <span class="answer-btn answer-btn-1"></span>
+                <span class="answer-btn answer-btn-2"></span>
+              </div>
+            </div>
+          </div> -->
+
+          <div styles="width: 1000px">
+            <input styles="width: 1000px"  id="msg_input" type="text">
+            <input id="msg_btn" type="submit">
+        </div>
+        <span id="namepass">{{current_user.username }}</span>
+    </div>
+    <script src="{{url_for('static', filename='script_js/chat_script.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+
+</div>
+</body>
+</html>

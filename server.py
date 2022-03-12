@@ -7,10 +7,13 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import LoginManager, login_user, current_user, UserMixin, logout_user, login_required
 from sqlalchemy.orm import relationship
-from sqlalchemy import ForeignKey
+from flask_socketio import SocketIO, send, join_room, leave_room
+import time
+
 
 app = Flask(__name__)
 Bootstrap(app)
+socketio = SocketIO(app)
 app.secret_key = "secrete"
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///user.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -175,5 +178,21 @@ def chat_page(room):
     return render_template("chat_room.html", user_room=room)
 
 
+@socketio.on("incoming")
+def message_handler(data):
+    print(data)
+    send(data, room=data["room"])
+    
+
+# user joining a room    
+@socketio.on("join")
+def join_handler(data):
+    chat_room = data["room"]
+    join_room(chat_room)
+    send({"msg": "user joined the room"}, room=chat_room)
+    
+    
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    socketio.run(app, debug=True)
